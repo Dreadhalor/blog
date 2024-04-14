@@ -1323,4 +1323,6 @@ const Page = () => {
 export default Page;
 ```
 
-Gorgeous. Time to move on & pick the next part to build.
+Gorgeous. Time to move on & pick the next part to build. Offhand, I feel the next 2 obvious options would be either the main file browser or the `Folders` file browser in the sidebar. & because the main file browser is going to be way harder, I choose the sidebar browser.
+
+Let's go!
