@@ -30,6 +30,8 @@
   - side note: we use `&apos;` for apostrophes because of sanitized inputs or something
   - check that the changes are reflected - yay, they are
 
+<!-- truncate -->
+
 - now is a bit of a personal choice: we're going to mock layouts before we actually plug in any infrastructure
   - this should make it a little less intimidating
   - it does come at the cost of having to configure dependencies in a slightly more complex codebase, but it shouldn't be too bad
@@ -109,7 +111,7 @@
 
     const Page = () => {
       return (
-        <div className='border h-full'>
+        <div className='h-full border'>
           They say that money talks, but all mine says is &apos;Goodbye!&apos;
         </div>
       );
@@ -172,8 +174,8 @@
          <html lang='en'>
            <body
              className={cn(
-               'h-screen bg-background font-sans antialiased',
-               fontSans.variable
+               'bg-background h-screen font-sans antialiased',
+               fontSans.variable,
              )}
            >
              {children}
@@ -327,10 +329,10 @@ import React from 'react';
 
 const Page = () => {
   return (
-    <div className='border-4 border-blue-600 flex h-full'>
-      <div className='border-4 w-[240px]'>SIDEBAR</div>
-      <div className='border-4 flex-1 flex-col'>
-        <div className='border border-blue-500 flex'>
+    <div className='flex h-full border-4 border-blue-600'>
+      <div className='w-[240px] border-4'>SIDEBAR</div>
+      <div className='flex-1 flex-col border-4'>
+        <div className='flex border border-blue-500'>
           <BrowseActionBarButton>Hey yo</BrowseActionBarButton>
         </div>
         MAIN CONTENT
@@ -446,7 +448,7 @@ const primary = false;
 clsx(
   'h-12 w-12',
   primary && 'bg-blue-500',
-  !primary && 'bg-transparent border'
+  !primary && 'bg-transparent border',
 );
 //=> 'h-12 w-12 bg-transparent border'
 ```
@@ -475,18 +477,18 @@ Here we can see the buttonVariants in the button primitive at `src/components/ui
 
 // ...
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
+  'focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+          'bg-primary text-primary-foreground hover:bg-primary/90 shadow',
         destructive:
-          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-sm',
         outline:
-          'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
+          'border-input bg-background hover:bg-accent hover:text-accent-foreground border shadow-sm',
         secondary:
-          'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+          'bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-sm',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
       },
@@ -501,7 +503,7 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 );
 
 // ...
@@ -521,7 +523,7 @@ type Props = {
 };
 export const BrowseActionBarButton = ({ children }: Props) => {
   return (
-    <Button className='bg-blue-500 hover:bg-blue-600 rounded-none justify-start items-center w-[140px] h-[76px] p-[12px]'>
+    <Button className='h-[76px] w-[140px] items-center justify-start rounded-none bg-blue-500 p-[12px] hover:bg-blue-600'>
       {children}
     </Button>
   );
@@ -536,16 +538,16 @@ What is effectively happening under-the-hood in this Button component is this:
 <button
   className={cn(
     // base styles from buttonVariants
-    'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50'
+    'focus-visible:ring-ring inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50'
       // buttonVariants.variants.variant.default styles
       .concat(
         ' ',
-        'bg-primary text-primary-foreground shadow hover:bg-primary/90'
+        'bg-primary text-primary-foreground hover:bg-primary/90 shadow',
       )
       // buttonVariants.variants.size.default styles
       .concat(' ', 'h-9 px-4 py-2'),
     // finally, the actual className prop we passed to the Button component
-    'bg-blue-500 hover:bg-blue-600 rounded-none justify-start items-center w-[140px] h-[76px] p-[12px]'
+    'h-[76px] w-[140px] items-center justify-start rounded-none bg-blue-500 p-[12px] hover:bg-blue-600',
   )}
 >
   {children}
@@ -577,7 +579,7 @@ type Props = {
 };
 export const BrowseActionBarButton = ({ children }: Props) => {
   return (
-    <Button className='bg-blue-500 font-semibold hover:bg-blue-600 flex flex-col gap-3 rounded-none justify-center items-start w-[140px] h-[76px] p-[12px]'>
+    <Button className='flex h-[76px] w-[140px] flex-col items-start justify-center gap-3 rounded-none bg-blue-500 p-[12px] font-semibold hover:bg-blue-600'>
       {children}
     </Button>
   );
@@ -593,10 +595,10 @@ import { MdUpload } from 'react-icons/md';
 
 const Page = () => {
   return (
-    <div className='border-4 border-blue-600 flex h-full'>
-      <div className='border-4 w-[240px]'>SIDEBAR</div>
-      <div className='border-4 flex-1 flex-col'>
-        <div className='border border-blue-500 flex p-2'>
+    <div className='flex h-full border-4 border-blue-600'>
+      <div className='w-[240px] border-4'>SIDEBAR</div>
+      <div className='flex-1 flex-col border-4'>
+        <div className='flex border border-blue-500 p-2'>
           <BrowseActionBarButton>
             <>
               <MdUpload size={24} />
@@ -700,7 +702,7 @@ export const BrowseActionBarButton = ({ primary = false, children }: Props) => {
       className={cn(
         'flex h-[76px] w-[140px] flex-col items-start justify-center gap-3 rounded-none p-[12px] font-semibold',
         primary && 'bg-blue-500 hover:bg-blue-600',
-        !primary && 'border bg-transparent text-white hover:bg-gray-900'
+        !primary && 'border bg-transparent text-white hover:bg-gray-900',
       )}
     >
       {children}

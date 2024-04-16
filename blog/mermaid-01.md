@@ -21,6 +21,8 @@ erDiagram
   }
 ```
 
+<!-- truncate -->
+
 ```mermaid
 graph TD
   Upload[File upload]

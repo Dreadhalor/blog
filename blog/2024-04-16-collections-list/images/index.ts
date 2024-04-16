@@ -1,0 +1,12 @@
+export { default as Nature1 } from './nature-1.jpg';
+export { default as Nature2 } from './nature-2.jpg';
+export { default as Nature3 } from './nature-3.jpg';
+export { default as Nature4 } from './nature-4.jpg';
+export { default as People1 } from './people-1.jpg';
+export { default as People2 } from './people-2.jpg';
+export { default as People3 } from './people-3.jpg';
+export { default as People4 } from './people-4.jpg';
+export { default as History1 } from './history-1.jpg';
+export { default as History2 } from './history-2.jpg';
+export { default as History3 } from './history-3.jpg';
+export { default as History4 } from './history-4.jpg';
