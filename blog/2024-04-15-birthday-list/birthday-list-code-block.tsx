@@ -1,24 +1,3 @@
-import { BirthdayList } from './birthday-list';
-import { BirthdayListNoAvatar } from './birthday-list-no-avatar';
-
-# 100 Days of Code 1: Birthday List
-
-Sup, yo. We gonna make this today:
-![Birthday List](./birthday_list.webp)
-
-This challenge is from [ICodeThis](https://icodethis.com/modes/design-to-code/39).
-
-& we're gonna use Tailwind, because it's as awesome as CSS isn't.
-
-{/* <BirthdayList /> */}
-
-{/* <BirthdayListNoAvatar /> */}
-
-<br />& there you go, it's basically the same thing but with the font looking
-less 'clean' somehow. I do not know how to do fonts, & for the time being I'll
-just have to live with that.
-
-```tsx live
 function BirthdayListNoAvatar() {
   const hslToRgb = (
     h: number,
@@ -106,20 +85,3 @@ function BirthdayListNoAvatar() {
     </div>
   );
 }
-```
-
-& here's a codesandbox of it for you to play with - I had to import Tailwind thru a CDN but it's otherwise identical:
-
-<iframe
-  src='https://codesandbox.io/embed/j9phz4?view=Editor+%2B+Preview&module=%2Fsrc%2Fbirthday-list.tsx'
-  style={{
-    width: '100%',
-    height: '500px',
-    border: '0',
-    borderRadius: '4px',
-    overflow: 'hidden',
-  }}
-  title='birthday-list'
-  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
-  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-></iframe>

@@ -1,20 +1,10 @@
-import { createAvatar } from '@dicebear/core';
-import { micah } from '@dicebear/collection';
-import { randomHexColor } from '@site/lib/utils';
-
-const BirthdayListAvatar = ({ name }) => {
-  const avatar = createAvatar(micah, {
-    seed: name,
-    backgroundColor: [randomHexColor(name)],
-  });
-  const dataUri = avatar.toDataUriSync();
-
-  return <img src={dataUri} alt={name} className='h-10 w-10 rounded-full' />;
+const BirthdayListAvatar = () => {
+  return <div className='h-10 w-10 rounded-full bg-gray-400' />;
 };
 const BirthdayListItem = ({ name, age }) => {
   return (
     <div className='flex flex-nowrap items-center gap-2'>
-      <BirthdayListAvatar name={name} />
+      <BirthdayListAvatar />
       <div className='flex flex-col'>
         <span className='text-sm text-black'>{name}</span>
         <span className='text-xs text-gray-400'>{age} years</span>
@@ -34,7 +24,7 @@ const BirthdayListList = () => {
   );
 };
 
-export const BirthdayList = () => {
+const BirthdayListNoAvatar = () => {
   return (
     <div className='flex h-[500px] w-full items-center justify-center bg-[#EF89B0] font-sans'>
       <div className='flex flex-col gap-5 rounded-md bg-white px-5 py-6 shadow-[35px_35px_20px_rgba(0,0,0,0.1)]'>
@@ -49,3 +39,5 @@ export const BirthdayList = () => {
     </div>
   );
 };
+
+export default BirthdayListNoAvatar;
