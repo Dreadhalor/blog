@@ -1,125 +1,34 @@
 import { BirthdayList } from './birthday-list';
-import { BirthdayListNoAvatar } from './birthday-list-no-avatar';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import LiveCodeExample from './_live-code-example.mdx';
+import CodeSandboxExample from './_codesandbox-example.mdx';
 
 # 100 Days of Code 1: Birthday List
 
 Sup, yo. We gonna make this today:
+
 ![Birthday List](./birthday_list.webp)
 
 This challenge is from [ICodeThis](https://icodethis.com/modes/design-to-code/39).
 
-& we're gonna use Tailwind, because it's as awesome as CSS isn't.
+& we're gonna use Tailwind, because it's as awesome as CSS files aren't.
 
-{/* <BirthdayList /> */}
+<BirthdayList />
 
-{/* <BirthdayListNoAvatar /> */}
+<br />
 
-<br />& there you go, it's basically the same thing but with the font looking
-less 'clean' somehow. I do not know how to do fonts, & for the time being I'll
-just have to live with that.
+So there you go, it's basically the same thing but with the font looking less 'clean'
+somehow. I do not know how to do fonts, & for the time being I'll just have to live
+with that.
 
-```tsx live
-function BirthdayListNoAvatar() {
-  const hslToRgb = (
-    h: number,
-    s: number,
-    l: number,
-  ): [number, number, number] => {
-    s /= 100;
-    l /= 100;
-    const k = (n: number) => (n + h / 30) % 12;
-    const a = s * Math.min(l, 1 - l);
-    const f = (n: number) =>
-      l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
-    return [
-      Math.trunc(255 * f(0)),
-      Math.trunc(255 * f(8)),
-      Math.trunc(255 * f(4)),
-    ];
-  };
+If you'd like to interact with the code for this yourself, you can check out some live coding examples below:
 
-  const rgbToHex = (r: number, g: number, b: number) =>
-    ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
-
-  const hslToHex = (h: number, s: number, l: number) =>
-    rgbToHex(...hslToRgb(h, s, l));
-
-  const randomHexColor = (seed?: string) => {
-    const hash = seed
-      ? seed
-          .split('')
-          .reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0)
-      : Math.floor(Math.random() * 10000);
-    const h = Math.abs(hash) % 360;
-    const s = Math.floor(100);
-    const l = Math.floor(50);
-    return hslToHex(h, s, l);
-  };
-
-  const BirthdayListAvatar = ({ name }) => {
-    const bg = randomHexColor(name);
-
-    return (
-      <img
-        src={`https://api.dicebear.com/8.x/micah/svg?seed=${name}&backgroundColor=${bg}`}
-        alt={name}
-        className='h-10 w-10 rounded-full'
-      />
-    );
-  };
-
-  const BirthdayListItem = ({ name, age }) => {
-    return (
-      <div className='flex flex-nowrap items-center gap-2'>
-        <BirthdayListAvatar name={name} />
-        <div className='flex flex-col'>
-          <span className='text-sm text-black'>{name}</span>
-          <span className='text-xs text-gray-400'>{age} years</span>
-        </div>
-      </div>
-    );
-  };
-
-  const BirthdayListList = () => {
-    return (
-      <div className='flex flex-col gap-2'>
-        <BirthdayListItem name='Bertie Yates' age={29} />
-        <BirthdayListItem name='Hester Hogan' age={32} />
-        <BirthdayListItem name='Larry Little' age={36} />
-        <BirthdayListItem name='Sean Walsh' age={34} />
-        <BirthdayListItem name='Lola Gardner' age={29} />
-      </div>
-    );
-  };
-
-  return (
-    <div className='flex h-[500px] w-full items-center justify-center bg-[#EF89B0] font-sans'>
-      <div className='flex flex-col gap-5 rounded-md bg-white px-5 py-6 shadow-[35px_35px_20px_rgba(0,0,0,0.1)]'>
-        <span className='text-md font-medium text-black'>
-          24 birthdays today
-        </span>
-        <BirthdayListList />
-        <button className='w-[180px] rounded-md border bg-gradient-to-r from-[#e66dd1] to-[#fd6aa9] py-2 text-sm font-bold text-white hover:brightness-105'>
-          View all
-        </button>
-      </div>
-    </div>
-  );
-}
-```
-
-& here's a codesandbox of it for you to play with - I had to import Tailwind thru a CDN but it's otherwise identical:
-
-<iframe
-  src='https://codesandbox.io/embed/j9phz4?view=Editor+%2B+Preview&module=%2Fsrc%2Fbirthday-list.tsx'
-  style={{
-    width: '100%',
-    height: '500px',
-    border: '0',
-    borderRadius: '4px',
-    overflow: 'hidden',
-  }}
-  title='birthday-list'
-  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
-  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
-></iframe>
+<Tabs>
+  <TabItem value='live' label='Live Code'>
+    <LiveCodeExample />
+  </TabItem>
+  <TabItem value='codesandbox' label='CodeSandbox'>
+    <CodeSandboxExample />
+  </TabItem>
+</Tabs>
