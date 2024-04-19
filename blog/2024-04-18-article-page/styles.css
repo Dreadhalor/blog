@@ -1,0 +1,33 @@
+@config './tailwind.config.ts';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 226 23% 85%;
+    --border: 226 23% 85%;
+    --muted: 226 21% 96%;
+  }
+}
+
+@layer components {
+  .font-chip {
+    @apply text-xs font-semibold;
+  }
+  .font-caption {
+    @apply text-sm font-normal tracking-wide;
+  }
+  .font-navbar {
+    @apply text-sm font-semibold;
+  }
+  .font-body {
+    @apply text-sm font-normal;
+  }
+  .h2 {
+    @apply m-0 text-2xl font-bold;
+  }
+  .h1 {
+    @apply m-0 text-4xl font-bold;
+  }
+}

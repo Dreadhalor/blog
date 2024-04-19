@@ -1,3 +1,12 @@
+import { micah } from '@dicebear/collection';
+import { createAvatar } from '@dicebear/core';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 const hslToRgb = (
   h: number,
   s: number,
@@ -32,4 +41,12 @@ export const randomHexColor = (seed?: string) => {
   const s = Math.floor(100);
   const l = Math.floor(50);
   return hslToHex(h, s, l);
+};
+
+export const getRandomAvatarUrl = (seed: string) => {
+  const avatar = createAvatar(micah, {
+    seed,
+    backgroundColor: [randomHexColor(seed)],
+  });
+  return avatar.toDataUriSync();
 };
