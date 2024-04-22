@@ -2,11 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://dreadhalor.github.io/the-blog</id>
     <title>Bloghalor Blog</title>
-    <updated>2024-04-20T00:00:00.000Z</updated>
+    <updated>2024-04-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://dreadhalor.github.io/the-blog"/>
     <subtitle>Bloghalor Blog</subtitle>
     <icon>https://dreadhalor.github.io/the-blog/img/logo-light.svg</icon>
+    <entry>
+        <title type="html"><![CDATA[100 Days of Code 7: Social Login]]></title>
+        <id>https://dreadhalor.github.io/the-blog/2024/04/22/social-login</id>
+        <link href="https://dreadhalor.github.io/the-blog/2024/04/22/social-login"/>
+        <updated>2024-04-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Here's the prompt for today:]]></summary>
+        <content type="html"><![CDATA[<p>Here's the prompt for today:</p>
+<p><img decoding="async" loading="lazy" alt="Social Login" src="https://dreadhalor.github.io/the-blog/assets/images/social_login-cae9dad6a2c2f4940f7861ae7bb66179.webp" width="1600" height="1200" class="img_mDju"></p>
+<!-- -->
+<p><a href="https://icodethis.com/modes/design-to-code/45/submissions" target="_blank" rel="noopener noreferrer">Challenge from ICodeThis</a></p>
+<p>&amp; this time, we'll time it. Just for fun, we'll time the Figma portion separately from the coding portion.</p>
+<p>Figma mockup, time starts now!</p>
+<iframe style="border:1px solid rgba(0, 0, 0, 0.1)" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FlQeHXso98MJKeXFbK20ptB%2F100-Days-of-Coding-7%253A-Social-Login%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DBdwadwAIuWso2AUw-1" allowfullscreen=""></iframe>
+<br>
+<p>Mockup done! Looks like 31 minutes. Seems passable I guess, but I definitely
+lost a lot of time with little things you can easily do in code that I don't
+have a clear analogue for in Figma, such as those dots as the bottom. In code
+I'd just set the alignment to be the bottom of the container &amp; then give them a
+negative margin to move them down, but Figma doesn't seem to have that. Figma
+not letting you set margins in general is pretty annoying, but it's still a good
+software.</p>
+<p>Okay, let's see if I can finish the code in time to still fit in a bike ride while the sun is out. Fortunately it's the summer so 4pm is still pretty bright.</p>
+<p>Coding time starts now!</p>
+<div class="flex w-full items-center justify-center bg-[#F2F8FD] py-[60px]"><div class="relative flex h-[250px] w-[600px] rounded-[16px] bg-[#DDE6F8] p-[10px]"><div class="flex h-full w-full items-center justify-center rounded-[10px] bg-gradient-to-l from-[#1C3FB9] to-[#4F6DE1]"><div class="flex w-[300px] flex-col items-center gap-[5px]"><span class="w-full text-center text-[24px] font-semibold">Already working together?</span><span class="mb-[15px] w-[240px] text-center text-[12px]">Log into your account and connect with your teammates!</span><div class="relative flex w-full items-center justify-end"><input class="w-full rounded-full border border-[#DDE6F8] bg-[#DDE6F8] bg-opacity-50 px-[16px] py-[8px] text-[12px] text-white placeholder:text-gray-200" placeholder="youremail@address.com"><div class="pointer-events-none absolute inset-0 flex items-center px-[8px]"><button class="pointer-events-auto z-10 ml-auto flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white text-black"><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" dataslot="icon" height="12" width="12" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path></svg></button></div></div></div></div><div class="pointer-events-none absolute inset-0 flex items-end justify-center"><div class="flex translate-y-[40%] gap-[30px]"><img src="https://api.dicebear.com/8.x/micah/svg?seed=John&amp;backgroundColor=59ff00" alt="John" class="aspect-square w-[50px] rounded-full border-[4px] border-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)]"><img src="https://api.dicebear.com/8.x/micah/svg?seed=Janet&amp;backgroundColor=00b2ff" alt="Janet" class="aspect-square w-[50px] rounded-full border-[4px] border-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)]"><img src="https://api.dicebear.com/8.x/micah/svg?seed=James&amp;backgroundColor=ff00bb" alt="James" class="aspect-square w-[50px] rounded-full border-[4px] border-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)]"><img src="https://api.dicebear.com/8.x/micah/svg?seed=Cynthia&amp;backgroundColor=00ffff" alt="Cynthia" class="aspect-square w-[50px] rounded-full border-[4px] border-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)]"><img src="https://api.dicebear.com/8.x/micah/svg?seed=Preston&amp;backgroundColor=ff0015" alt="Preston" class="aspect-square w-[50px] rounded-full border-[4px] border-white shadow-[0px_2px_8px_0px_rgba(0,0,0,0.25)]"></div></div></div></div>
+<br>
+<p>Done! Looks like it was 38 minutes. Not super stoked about that. When I started
+going I had the horrible realization that I had, once again, chosen extremely
+small fonts so I hda to arbitarily resize some stuff to make the font looks
+readable without needing to zoom in. It is comical how bad I am at fonts.</p>
+<p>Also, turns out you can't put children inside of an <code>&lt;input /&gt;</code> tag? How have I never come across this before? Either way, it wasted a decent chunk of time having to work around that.</p>
+<p>Either way, not stoked but not super disappointed! I like the idea of speed-coding these, especially because I'm working on some big projects outside of this so it incentivizes me to be efficient with my time without just saying "screw it" like I may have done yesterday.</p>
+<p>I swear I spent all day coding, I just didn't necessarily have a deliverable!</p>
+<p>Now let's end this challenge with a CodeSandbox for you to check out:</p>
+<iframe src="https://codesandbox.io/embed/p4f5gt?view=preview+%2B+preview&amp;module=%2Fsrc%2Fsocial-login.tsx" style="width:100%;height:500px;border:0;border-radius:4px" title="social-login"></iframe>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[100 Days of Code 6: Movie Ticket]]></title>
         <id>https://dreadhalor.github.io/the-blog/2024/04/20/movie-ticket</id>
