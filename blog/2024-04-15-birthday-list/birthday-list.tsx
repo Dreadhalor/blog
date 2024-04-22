@@ -1,15 +1,8 @@
-import { createAvatar } from '@dicebear/core';
-import { micah } from '@dicebear/collection';
-import { randomHexColor } from '@site/lib/utils';
+import { getRandomAvatarUrl } from '@site/lib/utils';
 
 const BirthdayListAvatar = ({ name }) => {
-  const avatar = createAvatar(micah, {
-    seed: name,
-    backgroundColor: [randomHexColor(name)],
-  });
-  const dataUri = avatar.toDataUriSync();
-
-  return <img src={dataUri} alt={name} className='h-10 w-10 rounded-full' />;
+  const avatar = getRandomAvatarUrl(name);
+  return <img src={avatar} alt={name} className='h-10 w-10 rounded-full' />;
 };
 const BirthdayListItem = ({ name, age }) => {
   return (

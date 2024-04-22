@@ -1,5 +1,5 @@
 {
-  "name": "blog",
+  "name": "the-blog",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "start": "docusaurus start --port 3001",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "dotenvx run --env-file=.env -- docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -15,8 +15,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@dicebear/collection": "^8.0.1",
-    "@dicebear/core": "^8.0.1",
     "@docusaurus/core": "3.2.1",
     "@docusaurus/preset-classic": "3.2.1",
     "@docusaurus/theme-live-codeblock": "^3.2.1",
@@ -37,6 +35,7 @@
     "@docusaurus/theme-classic": "^3.2.1",
     "@docusaurus/tsconfig": "3.2.1",
     "@docusaurus/types": "3.2.1",
+    "@dotenvx/dotenvx": "^0.35.1",
     "@types/node": "^20.12.7",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",

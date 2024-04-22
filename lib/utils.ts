@@ -1,5 +1,3 @@
-import { micah } from '@dicebear/collection';
-import { createAvatar } from '@dicebear/core';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -44,9 +42,13 @@ export const randomHexColor = (seed?: string) => {
 };
 
 export const getRandomAvatarUrl = (seed: string) => {
-  const avatar = createAvatar(micah, {
-    seed,
-    backgroundColor: [randomHexColor(seed)],
-  });
-  return avatar.toDataUriSync();
+  // dicebear has a bug, just use the web api
+  // const avatar = createAvatar(micah, {
+  //   seed,
+  //   backgroundColor: [randomHexColor(seed)],
+  // });
+  // return avatar.toDataUriSync();
+  const bg = randomHexColor(seed);
+
+  return `https://api.dicebear.com/8.x/micah/svg?seed=${seed}&backgroundColor=${bg}`;
 };
